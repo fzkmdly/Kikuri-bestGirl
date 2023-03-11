@@ -1,12 +1,20 @@
 <html lang="en">
 <head>
     <%- include('layout/head') %>
+    <style>
+      button a {
+        color: white;
+      }
+    </style>
 </head>
 <body>
     <nav>
         <%- include('layout/nav') %>
     </nav>
     <div>
+      <a href="/about/add">
+        <button type="button" class="btn btn-primary">New Data</button>
+      </a>
         <table class="table table-stripped">
             <thead>
                 <tr>
@@ -14,6 +22,7 @@
                   <th scope="col">Name</th>
                   <th scope="col">Email</th>
                   <th scope="col">ID</th>
+                  <th scope="col">Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -23,6 +32,11 @@
                     <th><%= Member.Name %></th>
                     <th><%= Member.email %></th>
                     <th><%= Member.ID %></th>
+                    <th>
+                      <button type="button" class="btn btn-primary">
+                        <a href="/about/<%= Member.Name %>">Detail</a>
+                      </button>
+                    </th>
                   <% }) %>
                 </tr>
               </tbody>

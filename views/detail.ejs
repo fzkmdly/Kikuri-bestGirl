@@ -1,0 +1,28 @@
+<html lang="en">
+<head>
+    <%- include('layout/head') %>
+</head>
+<body>
+    <div>
+        <%- include('layout/nav') %>
+    </div>
+    <div>
+        <div class="card" style="width: 18rem;">
+            <% if (!Datass) { %>
+                <div class="alert alert-danger" role="alert">
+                    No Data <a href="/about" class="alert-link">&laquo; Back to Member</a>. <br>
+                    Give it a click if you like.
+                </div>
+            <% } else { %>
+                <img src="https://i.pinimg.com/564x/2c/22/94/2c22942f02fb9bfd444193dcb5f5beb5.jpg" class="card-img-top" alt="Ryo">
+                <div class="card-body">
+                    <h5 class="card-title"><%= Datass.Name %></h5>
+                    <h5 class="card-title"><%= Datass.ID %></h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="/team/<%= Datass.name %>" class="btn btn-primary">Detail</a>
+                </div>
+            <% } %>
+        </div>
+    </div>
+</body>
+</html>

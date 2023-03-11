@@ -3,7 +3,7 @@ const app = express()
 const ejs = require('ejs')
 
 //Imported File
-const {loadDatas} = require('./utils/contact')
+const {loadDatas, findDatas} = require('./utils/contact')
 
 //MiddleWare
 //Menambah Fungsionalitas pada web di belakang layar
@@ -18,6 +18,8 @@ app.get('/', (req, res)=> {
     })
 })
 
+
+//About page and Profile Page
 app.get('/about', (req, res) => {
     const Datas = loadDatas()
     res.render('about', {
@@ -26,6 +28,22 @@ app.get('/about', (req, res) => {
     })
 })
 
+app.get('/about/add', (req, res) => {
+    res.render('add', {
+        title : "Add Datas Member"
+    })
+})
+
+app.get('/about/:name', (req, res) => {
+    const Datass = findDatas(req.params.name)
+    res.render('detail', {
+        title : Datass.Name,
+        Datass
+    })
+})
+
+
+//Help Pages
 app.get('/help', (req, res) => {
     res.render('help' , {
         title : 'help'
