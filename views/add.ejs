@@ -1,0 +1,28 @@
+<html lang="en">
+<head>
+    <%- include('layout/head') %>
+</head>
+<body>
+    <div>
+        <h2>Please Enter the Data</h2>
+    </div>
+    <div class="w-25 p-3">
+        <form method="post" action="/about">
+            <div class="mb-3">
+                <label for="email" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="email"  name="email" required>
+                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+            </div>
+            <div class="mb-3">
+                <label for="Name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="Name" name="Name" required>
+            </div>
+            <div class="mb-3">
+                <label for="ID" class="form-label">ID</label>
+                <input type="text" class="form-control" id="ID" name="ID" required>
+            </div>
+            <button type="submit" class="btn btn-primary rounded-pill">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

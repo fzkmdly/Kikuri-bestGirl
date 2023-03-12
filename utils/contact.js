@@ -19,4 +19,24 @@ const loadDatas = () => {
     return change;
 }
 
-module.exports = {loadDatas}
+//Find Datas By Name to show the detail
+const findDatas = (Name) => {
+    //Name has to declared
+    const Datas = loadDatas()
+    const Filtered = Datas.find((contact) => contact.Name.toLowerCase() === Name.toLowerCase())
+    //toLowerCase means that Server search for datas is very specific
+    return Filtered
+}
+
+//Adding Datas Member
+const saveDatas = (Datas) => {
+    fs.writeFileSync('./Datas/contact.json', JSON.stringify(Datas))
+}
+
+const AddDatas = (Datas) => {
+    const contact = loadDatas()
+    contact.push(Datas)
+    saveDatas(contact)
+}
+
+module.exports = {loadDatas , findDatas, AddDatas}
