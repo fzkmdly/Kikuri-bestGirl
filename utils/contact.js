@@ -28,4 +28,15 @@ const findDatas = (Name) => {
     return Filtered
 }
 
-module.exports = {loadDatas , findDatas}
+//Adding Datas Member
+const saveDatas = (Datas) => {
+    fs.writeFileSync('./Datas/contact.json', JSON.stringify(Datas))
+}
+
+const AddDatas = (Datas) => {
+    const contact = loadDatas()
+    contact.push(Datas)
+    saveDatas(contact)
+}
+
+module.exports = {loadDatas , findDatas, AddDatas}

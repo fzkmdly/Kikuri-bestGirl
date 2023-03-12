@@ -1,14 +1,16 @@
 const express = require('express')
 const app = express()
 const ejs = require('ejs')
+const { body, validationResult } = require('express-validator');
 
 //Imported File
-const {loadDatas, findDatas} = require('./utils/contact')
+const {loadDatas, findDatas, AddDatas} = require('./utils/contact')
 
 //MiddleWare
 //Menambah Fungsionalitas pada web di belakang layar
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
+app.use(express.urlencoded({extended : true}))
 
 
 //Main config
@@ -33,6 +35,11 @@ app.get('/about/add', (req, res) => {
         title : "Add Datas Member"
     })
 })
+app.post('/about', (req, res) => {
+    //Add Datas 
+    AddDatas(req.body);
+    res.redirect('/about')
+})
 
 app.get('/about/:name', (req, res) => {
     const Datass = findDatas(req.params.name)
@@ -41,6 +48,7 @@ app.get('/about/:name', (req, res) => {
         Datass
     })
 })
+
 
 
 //Help Pages

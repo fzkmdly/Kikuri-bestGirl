@@ -26,8 +26,8 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <% Datas.forEach((Member, i) => { i++%>
+                <% Datas.forEach((Member, i) => { i++%>
+                  <tr>
                     <th scope="row"><%= i++ %></th>
                     <th><%= Member.Name %></th>
                     <th><%= Member.email %></th>
@@ -37,8 +37,8 @@
                         <a href="/about/<%= Member.Name %>">Detail</a>
                       </button>
                     </th>
-                  <% }) %>
-                </tr>
+                  </tr>
+                <% }) %>
               </tbody>
         </table>
     </div>
