@@ -39,4 +39,18 @@ const AddDatas = (Datas) => {
     saveDatas(contact)
 }
 
-module.exports = {loadDatas , findDatas, AddDatas}
+//Duplicated Section
+const emailDup =(email) => {
+    const contact = loadDatas()
+    return contact.find((Kontak) => Kontak.email === email)
+}
+const nameDup =(Datas) => {
+    const contact = loadDatas()
+    return contact.find((Kontak) => Kontak.Name.toLowerCase() === Datas.toLowerCase())
+}
+const idDup =(Datas) => {
+    const contact = loadDatas()
+    return contact.find((Kontak) => Kontak.ID === Datas)
+}
+
+module.exports = {loadDatas , findDatas, AddDatas, emailDup, nameDup, idDup}
