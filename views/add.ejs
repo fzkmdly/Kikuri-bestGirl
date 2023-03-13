@@ -6,7 +6,18 @@
     <div>
         <h2>Please Enter the Data</h2>
     </div>
-    <div class="w-25 p-3">
+    <div class="w-50 p-3">
+        <div>
+            <% if (typeof errors != 'undefined') { %>
+                <div class="alert alert-danger" role="alert">
+                    <ul>
+                        <% errors.forEach(err => { %>
+                         <li><%= err.msg %></li>
+                        <% }) %>
+                    </ul>
+                </div>
+            <% } %>
+        </div>
         <form method="post" action="/about">
             <div class="mb-3">
                 <label for="email" class="form-label">Email address</label>
